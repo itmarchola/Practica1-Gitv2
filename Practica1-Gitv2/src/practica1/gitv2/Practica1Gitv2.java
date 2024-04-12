@@ -24,21 +24,16 @@ public class Practica1Gitv2 {
 
             String numero1;
             do {
-                System.out.println("\n Introdueix el primer numero. ");
+                System.out.println("\n Introdueix el primer numero.");
                 numero1 = sc.nextLine();
             } while (!numero1.matches("[+-]?[\\d]*[.]?[\\d]+"));
             double nume1 = Double.parseDouble(numero1);
             double n1 = new Double(numero1);
 
             do {
-                System.out.println("\nOperaciones disponibles:\n"+
-            "1. Sumar (+)\n"+
-            "2. Restar (-)\n"+
-            "3. Multiplicar (x)\n"+
-            "4. Dividir (/)\n"+
-            "5. Elevar el primer número al segundo número (*)\n"+
-            "6. Calcular el residuo (%)\n");
+                utilities.imprimirMenu();
                 operacion = sc.nextInt();
+                sc.nextLine();
                 if (operacion>0 && operacion<7) {
                     comprobar = true;
                 } else {
@@ -58,13 +53,13 @@ public class Practica1Gitv2 {
                 comprobar = true;
                 switch (operacion) {
                     case 1:
-                        res = n1 + n2;
+                        res = utilities.suma(n1, n2);
                         break;
                     case 2:
-                        res = n1 - n2;
+                        res = utilities.resta(n1, n2);
                         break;
                     case 3:
-                        res = n1 * n2;
+                        res = utilities.multiplicacion(n1,n2);
                         break;
                     case 4:
                         while (n2 == 0) {
@@ -76,7 +71,7 @@ public class Practica1Gitv2 {
                             nume2 = Double.parseDouble(numero2);
                             n2 = new Double(numero2);
                         }
-                        res = n1 / n2;
+                        res = utilities.division(n1, n2);
                         break;
                     case 5:
                         res = Math.pow(n1, n2);
