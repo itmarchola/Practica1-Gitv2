@@ -16,7 +16,8 @@ public class Practica1Gitv2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double res = 0;
-        String operacion;
+        int operacion;
+        String decision;
         boolean comprobar = false;
 
         do {
@@ -30,14 +31,15 @@ public class Practica1Gitv2 {
             double n1 = new Double(numero1);
 
             do {
-                System.out.println("\n Operació? (Indica el signe)");
-                System.out.println("+ = sumar \n - = restar \n"
-                        + " x = multiplicar \n / = dividir \n * = elevar primer num al segon num."
-                        + "\n % = residu");
-                operacion = sc.nextLine();
-                if (operacion.equals("+") || operacion.equals("-") || operacion.equals("x")
-                        || operacion.equals("X") || operacion.equals("/") || operacion.equals("%")
-                        || operacion.equals("*")) {
+                System.out.println("\nOperaciones disponibles:\n"+
+            "1. Sumar (+)\n"+
+            "2. Restar (-)\n"+
+            "3. Multiplicar (x)\n"+
+            "4. Dividir (/)\n"+
+            "5. Elevar el primer número al segundo número (*)\n"+
+            "6. Calcular el residuo (%)\n");
+                operacion = sc.nextInt();
+                if (operacion>0 && operacion<7) {
                     comprobar = true;
                 } else {
                     comprobar = false;
@@ -55,17 +57,16 @@ public class Practica1Gitv2 {
             do {
                 comprobar = true;
                 switch (operacion) {
-                    case "+":
+                    case 1:
                         res = n2 + n2;
                         break;
-                    case "-":
+                    case 2:
                         res = n1 - n2;
                         break;
-                    case "x":
-                    case "X":
+                    case 3:
                         res = n1 * n2;
                         break;
-                    case "/":
+                    case 4:
                         while (n2 == 0) {
                             do {
                                 System.err.println(" Al denominador hi ha un zero \n"
@@ -77,10 +78,10 @@ public class Practica1Gitv2 {
                         }
                         res = n1 / n2;
                         break;
-                    case "*":
+                    case 5:
                         res = Math.pow(n1, n1);
                         break;
-                    case "%":
+                    case 6:
                         while (n2 == 0) {
                             do {
                                 System.err.println(" Al denominador hi ha un zero \n"
@@ -100,9 +101,9 @@ public class Practica1Gitv2 {
             System.out.println(" [s/n]");
             do {
                 comprobar = true;
-                operacion = sc.nextLine();
+                decision = sc.nextLine();
 
-                switch (operacion) {
+                switch (decision) {
                     case "s":
                     case "S":
                     case "n":
@@ -113,7 +114,7 @@ public class Practica1Gitv2 {
                         comprobar = false;
                 }
             } while (comprobar != true);
-        } while (operacion.equals("s") || operacion.equals("S"));
+        } while (decision.equals("s") || decision.equals("S"));
     }
     
 }
