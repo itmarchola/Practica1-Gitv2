@@ -105,7 +105,7 @@ public class Practica1Gitv2 {
                     case "N":
                         break;
                     default:
-                        System.err.println("\n Error, posa un valor vàlid. \n");
+                        System.err.println("\n Erro, posa un valor vàlid. \n");
                         comprobar = false;
                 }
             } while (comprobar != true);
